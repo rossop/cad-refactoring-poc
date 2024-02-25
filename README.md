@@ -1,4 +1,4 @@
-# My CAD Project
+# Refactoring CAD - Proof of Concept
 
 ## Project Structure
 my_cad_project/
@@ -21,6 +21,10 @@ my_cad_project/
 │   ├── __init__.py
 │   └── test_refactoring.py
 │
+├── LICENCE
 ├── requirements.txt
 └── README.md
 
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for detail.
