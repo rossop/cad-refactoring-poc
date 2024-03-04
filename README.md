@@ -1,7 +1,7 @@
 # Refactoring CAD - Proof of Concept
 
 ## Project Structure
-my_cad_project/
+refactoring_cad_poc/
 │
 ├── data/
 │   ├── processed/
