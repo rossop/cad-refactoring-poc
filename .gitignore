@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.swp
 
 # C extensions
 *.so
@@ -115,3 +116,4 @@ dmypy.json
 
 # Temporary files
 data/temp/
+.vscode/settings.json
