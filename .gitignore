@@ -118,3 +118,24 @@ dmypy.json
 # Temporary files
 data/temp/
 .vscode/settings.json
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Data directories
+data/
+temp/
+
+# Docker: Ignore all local volumes
+volumes/
+
+# Ignore Docker environment variables file
+.env.docker
