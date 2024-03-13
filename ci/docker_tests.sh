@@ -28,13 +28,18 @@ docker run -d --rm -p 8888:8888 -v "$(pwd)":/home/cq --name my_jupyter_cadquery_
 # Wait for the container to start properly
 sleep 10
 
-# Test for the presence of the notebooks folder inside the container
-if docker exec my_jupyter_cadquery_test ls /home/cq | grep -q notebooks; then
-    echo "Notebooks folder test passed."
-else
-    echo "Notebooks folder test failed."
-    exit 1
-fi
+# Attempt to run the test command with a timeout
+timeout=30 # 30 seconds timeout
+while ! docker exec my_jupyter_cadquery_test ls /home/cq | grep -q notebooks
+do
+    if [ $timeout -le 0 ]; then
+        echo "Container did not become ready in time."
+        exit 1
+    fi
+    sleep 1
+    ((timeout--))
+done
+echo "Notebooks folder test passed."
 
 cleanup
 echo "All tests completed successfully."
