@@ -78,10 +78,14 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+.jupyter
 
 # IPython
 profile_default/
 ipython_config.py
+.ipython
+
+.local
 
 # pyenv
 .python-version
@@ -118,6 +122,8 @@ dmypy.json
 # Temporary files
 data/temp/
 .vscode/settings.json
+.vscode/
+.config/
 
 # mkdocs documentation
 /site
@@ -131,8 +137,8 @@ dmypy.json
 .pyre/
 
 # Data directories
-data/
-temp/
+# data/
+temp/*
 
 # Docker: Ignore all local volumes
 volumes/
