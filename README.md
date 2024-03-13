@@ -13,6 +13,9 @@
   - [Usage](#usage)
     - [Using the CAD Refactoring Library](#using-the-cad-refactoring-library)
     - [Interactive Exploration with Jupyter Notebooks](#interactive-exploration-with-jupyter-notebooks)
+  - [Testing](#testing)
+    - [Docker Environment Testing](#docker-environment-testing)
+      - [Running the Test Script](#running-the-test-script)
   - [Contributing](#contributing)
   - [Licence](#licence)
   - [Acknowledgments](#acknowledgments)
@@ -23,31 +26,36 @@ This project, Refactoring CAD POC, is designed to showcase a proof of concept (P
 ## Project Structure
 The project is organized as follows:
 
-- data/: Contains sample data used by the CAD models.
+- `data/`: Contains sample data used by the CAD models.
   - processed/: Processed data that the library has transformed.
   - raw/: Original, unmodified data.
   - temp/: Temporary data storage.
-- doc/: Documentation related to the project.
-- notebooks/: This directory contains Jupyter Notebooks that provide interactive demonstrations and exploratory interfaces for the project. Notebooks are an excellent tool for:
-- src/: Source code for the CAD refactoring library.
-  - __init__.py: Marks the directory as a Python package.
-  - refactoring.py: Core logic for CAD model refactoring.
-- examples/: Example scripts demonstrating how to use the library.
-  - simple_refactor_example.py: A simple script showing a basic refactoring process.
-- tests/: Test suite for the library.
-  - __init__.py: Marks the directory as a Python package.
-  - test_refactoring.py: Test cases for refactoring functionalities.
-- notebooks/: Jupyter Notebooks for interactive demonstrations and exploration.
-- Dockerfile: Defines the setup for a Docker container that encapsulates your project's environment. It ensures that anyone can replicate your development setup and run your project with minimal setup, regardless of their operating system or local Python environment. The Dockerfile  includes:
+- `ci/`: Continuos Intergration tests
+  - [`docker_tests.sh`](ci/docker_tests.sh): Tests if docker container loads properly.
+- `doc/`: Documentation related to the project.
+- `notebooks/`: This directory contains Jupyter Notebooks that provide interactive demonstrations and exploratory interfaces for the project. Notebooks are an excellent tool for:
+- `src/`: Source code for the CAD refactoring library.
+  - `__init__.py`: Marks the directory as a Python package.
+  - `refactoring.py`: Core logic for CAD model refactoring.
+- `examples/`: Example scripts demonstrating how to use the library.
+  - `simple_refactor_example.py`: A simple script showing a basic refactoring process.
+- `tests/`: Test suite for the library.
+  - `__init__.py`: Marks the directory as a Python package.
+  - `test_refactoring.py`: Test cases for refactoring functionalities.
+- `notebooks/`: Jupyter Notebooks for interactive demonstrations and exploration.
+- `Dockerfile`: Defines the setup for a Docker container that encapsulates your project's environment. It ensures that anyone can replicate your development setup and run your project with minimal setup, regardless of their operating system or local Python environment. The Dockerfile  includes:
   - Base Image: Starting point for the Docker image, often a lightweight version of Python or a specialized image like bwalter42/jupyter_cadquery:3.5.2 for specific applications.
   Dependencies Installation: Commands to install Python packages listed in requirements.txt, ensuring all necessary libraries are available within the container.
   - Environment Setup: Configuration of the working directory, port exposure for web applications, and default commands or entry points for running the application or service.
-- LICENCE: The license file for the project.
-- requirements.txt: A list of Python package dependencies.
-- README.md: This file, providing an overview and instructions for the project.
+- `LICENCE`: The license file for the project.
+- `requirements.txt`: A list of Python package dependencies.
+- `README.md`: This file, providing an overview and instructions for the project.
 
 ```
 refactoring_cad_poc/
+│
+├── ci/
+│   └── docker_tests.sh   # Script for Docker build and run tests
 │
 ├── data/
 │   ├── processed/
@@ -134,6 +142,27 @@ See the examples/ directory for scripts demonstrating how to use the library. Yo
 
 ### Interactive Exploration with Jupyter Notebooks
 Navigate to the notebooks/ directory in the JupyterLab interface to find interactive notebooks. These notebooks provide a hands-on way to explore CAD model refactoring processes.
+
+## Testing
+### Docker Environment Testing
+To ensure the Docker environment for our project is correctly set up and operational, we provide a bash script (docker_tests.sh) that automates the testing process. This script performs the following actions:
+
+1. Builds the Docker image from the Dockerfile.
+2. Runs a Docker container from this image in detached mode, mounting the current project directory.
+3. Checks for the presence of the `notebooks/` folder inside the container to verify successful volume mounting.
+4. Cleans up by stopping the running container and optionally removing the Docker image.
+
+#### Running the Test Script
+Ensure Docker is installed and running on your system, then execute the following command from the project root directory:
+
+```sh
+./ci/docker_tests.sh
+
+```
+Note: If you encounter a permission denied error, you may need to make the script executable. You can do so with the following command:
+```sh
+chmod +x ci/docker_tests.sh
+```
 
 ## Contributing
 Contributions to the Refactoring CAD POC project are welcome. Please read CONTRIBUTING.md for guidelines on how to contribute (Note: You'll need to create this CONTRIBUTING.md file).
