@@ -20,7 +20,9 @@ if [ ! -f Dockerfile ]; then
 fi
 
 # Build the Docker image
-docker build -t my_jupyter_cadquery .
+# docker build -t my_jupyter_cadquery .
+docker build --no-cache --progress=plain -t my_jupyter_cadquery .
+
 
 # Run the Docker container in detached mode, mounting the project directory
 docker run -d --rm -p 8888:8888 -v "$(pwd)":/home/cq --name my_jupyter_cadquery_test my_jupyter_cadquery
@@ -33,6 +35,7 @@ timeout=30 # 30 seconds timeout
 while ! docker exec my_jupyter_cadquery_test ls /home/cq | grep -q notebooks
 do
     if [ $timeout -le 0 ]; then
+        docker logs my_jupyter_cadquery_test
         echo "Container did not become ready in time."
         exit 1
     fi
