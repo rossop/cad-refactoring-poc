@@ -145,7 +145,7 @@ Navigate to the notebooks/ directory in the JupyterLab interface to find interac
 
 ## Testing
 ### Docker Environment Testing
-To ensure the Docker environment for our project is correctly set up and operational, we provide a bash script (docker_tests.sh) that automates the testing process. This script performs the following actions:
+To ensure the Docker environment for our project is correctly set up and operational, we provide a bash script (`docker_tests.sh`) that automates the testing process. This script performs the following actions:
 
 1. Builds the Docker image from the Dockerfile.
 2. Runs a Docker container from this image in detached mode, mounting the current project directory.
@@ -165,7 +165,7 @@ chmod +x ci/docker_tests.sh
 ```
 
 ## Contributing
-Contributions to the Refactoring CAD POC project are welcome. Please read CONTRIBUTING.md for guidelines on how to contribute (Note: You'll need to create this CONTRIBUTING.md file).
+Contributions to the Refactoring CAD POC project are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
 
 ## Licence
 This project is licensed under the [MIT Licence](LICENCE).
