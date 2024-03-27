@@ -145,3 +145,6 @@ volumes/
 
 # Ignore Docker environment variables file
 .env.docker
+
+# Logging
+pytest.log
