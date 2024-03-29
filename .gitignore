@@ -148,3 +148,6 @@ volumes/
 
 # Logging
 pytest.log
+
+# Commiting
+commit.txt
