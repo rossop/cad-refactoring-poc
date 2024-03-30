@@ -1,4 +1,4 @@
-# Refactoring CAD POC
+# Refactoring CAD Proof of Concept
 
 ## Table of Contents
 - [Refactoring CAD POC](#refactoring-cad-poc)
@@ -21,7 +21,7 @@
   - [Acknowledgments](#acknowledgments)
 
 ## Introduction 
-This project, Refactoring CAD POC, is designed to showcase a proof of concept (POC) for refactoring CAD models using CadQuery. It includes a library for CAD model refactoring, example scripts, and a Jupyter Notebook environment for interactive exploration.
+This project, Refactoring CAD Proof of Concept (POC), is designed to showcase a proof of concept (POC) for refactoring CAD models using CadQuery. It includes a library for CAD model refactoring, example scripts, and a Jupyter Notebook environment for interactive exploration.
 
 ## Project Structure
 The project is organized as follows:
@@ -44,12 +44,12 @@ The project is organized as follows:
   - `test_refactoring.py`: Test cases for refactoring functionalities.
 - `notebooks/`: Jupyter Notebooks for interactive demonstrations and exploration.
 - `Dockerfile`: Defines the setup for a Docker container that encapsulates your project's environment. It ensures that anyone can replicate your development setup and run your project with minimal setup, regardless of their operating system or local Python environment. The Dockerfile  includes:
-  - Base Image: Starting point for the Docker image, often a lightweight version of Python or a specialized image like bwalter42/jupyter_cadquery:3.5.2 for specific applications.
+  - Base Image: The starting point for the Docker image is often a lightweight version of Python or a specialized image like bwalter42/jupyter_cadquery:3.5.2 for specific applications.
   Dependencies Installation: Commands to install Python packages listed in requirements.txt, ensuring all necessary libraries are available within the container.
   - Environment Setup: Configuration of the working directory, port exposure for web applications, and default commands or entry points for running the application or service.
 - `LICENCE`: The license file for the project.
 - `requirements.txt`: A list of Python package dependencies.
-- `README.md`: This file, providing an overview and instructions for the project.
+- `README.md`: This file provides an overview and instructions for the project.
 
 ```
 refactoring_cad_poc/
@@ -65,7 +65,7 @@ refactoring_cad_poc/
 ├── doc/
 │
 │
-├── notebooks/          # Jupyter notebooks which can be runned usign Docker
+├── notebooks/          # Jupyter notebooks which can be run using Docker
 │
 ├── src/                # Source code for your CAD refactoring library
 │   ├── __init__.py     # Makes this directory a Python package
@@ -91,7 +91,7 @@ These instructions will cover the setup required to run the Jupyter-CadQuery env
 
 ### Prerequisites
 #### Jupiter Notebook Prerequisites
-Ensure you have Docker installed on your system to use the Jupyter-CadQuery environment for exploring the project interactively. For installation instructions, see Docker's official documentation.
+Ensure you have Docker installed on your system to explore the project interactively in the Jupyter-CadQuery environment. For installation instructions, see Docker's official documentation.
 
 ### Installation
 1. Clone the repository:
@@ -138,7 +138,7 @@ Ensure you have Docker installed on your system to use the Jupyter-CadQuery envi
 
 ## Usage
 ### Using the CAD Refactoring Library
-See the examples/ directory for scripts demonstrating how to use the library. You can run these scripts directly or explore them in the JupyterLab environment.
+The examples/ directory contains scripts demonstrating how to use the library. You can run these scripts directly or explore them in the JupyterLab environment.
 
 ### Interactive Exploration with Jupyter Notebooks
 Navigate to the notebooks/ directory in the JupyterLab interface to find interactive notebooks. These notebooks provide a hands-on way to explore CAD model refactoring processes.
@@ -171,5 +171,5 @@ Contributions to the Refactoring CAD POC project are welcome. Please read [CONTR
 This project is licensed under the [MIT Licence](LICENCE).
 
 ## Acknowledgments
-Thanks to the CadQuery community for providing the tools and support for CAD modeling in Python.
+Thanks to the CadQuery community for providing the tools and support for CAD modelling in Python.
 
