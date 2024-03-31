@@ -1,0 +1,44 @@
+name: Python application test with Mamba
+
+on:
+  push:
+    branches: [ 
+                main,
+                develop,
+                feature-github* 
+              ]
+  pull_request:
+    branches: [ 
+                main,
+                develop 
+              ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Setup Mamba
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        mamba-version: "*"
+        channels: conda-forge
+        channel-priority: true
+        environment-file: environment.yml
+        activate-environment: my-env
+
+    - name: Install dependencies
+      run: |
+        mamba install -n my-env -c conda-forge pytest
+        mamba list
+
+    - name: Run pytest
+      shell: bash -l {0}
+      run: pytest
+
