@@ -8,7 +8,7 @@ WORKDIR /home/cq
 COPY requirements.txt /home/cq/requirements.txt
 
 # Install additional Python packages from requirements.txt
-# RUN pip install --no-cache-dir -r /home/cq/requirements.txt
+RUN pip install --no-cache-dir -r /home/cq/requirements.txt
 
 # Expose the port JupyterLab will run on
 EXPOSE 8888
